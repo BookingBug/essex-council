@@ -15,7 +15,6 @@ var gulp = require('gulp');
     sass = require('gulp-sass');
     mainBowerFiles = require('main-bower-files');
     uglify = require('gulp-uglify');
-    git = require('gulp-git');
 var bower = require('gulp-bower');
     path = require('path')
 
@@ -28,12 +27,6 @@ gulp.task('clean', function(cb) {
   cb()
 });
 
-/*gulp.task('repo_clone', function(cb) {
-  git.clone("https://github.com/BookingBug/bookingbug-angular.git", {cwd: "./src/"}, function(err){
-    //console.log(err);
-    cb(null);
-  });
-});*/
 gulp.task('www', function() {
   return gulp.src(['src/www/*'])
       .pipe(gulpif(argv.env == 'development' || argv.env == 'dev',
